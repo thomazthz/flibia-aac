@@ -1,0 +1,21 @@
+.box {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+    & + .box {
+        margin-top: $padding-0625;
+    }
+
+    &.horizontal {
+        flex-flow: row;
+    }
+
+    &.space-between {
+        justify-content: space-between;
+    }
+
+    &.box-aside {
+        width: 170px;
+    }
+}

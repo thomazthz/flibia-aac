@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    {% call card("Account Management") %}
+        {% call inner_card("Create New Account") %}
+            <form method="POST" action="/register">
+                {{ form.csrf_token }}
+                <div class="card-shadow">
+                    <table class="form-table">
+                        <tbody>
+                            {# Field: account name #}
+                            <tr>
+                                <td>{{ form.name.label(class_="label") }}</td>
+                                <td>{{ form.name(class_="input is-small", type="text") }}</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    {% if form.name.errors %}
+                                        {% for error in form.name.errors %}
+                                            <p class="help is-danger">{{ error }}</p>
+                                        {% endfor %}
+                                    {% endif %}
+                                </td>
+                            </tr>
+
+                            {# Field: email #}
+                            <tr>
+                                <td>{{ form.email.label(class_="label") }}</td>
+                                <td>{{ form.email(class_="input is-small", type="text") }}</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    {% if form.email.errors %}
+                                        {% for error in form.email.errors %}
+                                            <p class="help is-danger">{{ error }}</p>
+                                        {% endfor %}
+                                    {% endif %}
+                                </td>
+                            </tr>
+
+                            {# Field: password #}
+                            <tr>
+                                <td>{{ form.password.label(class_="label") }}</td>
+                                <td>{{ form.password(class_="input is-small", type="password") }}</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    {% if form.password.errors %}
+                                        {% for error in form.password.errors %}
+                                            <p class="help is-danger">{{ error }}</p>
+                                        {% endfor %}
+                                    {% endif %}
+                                </td>
+                            </tr>
+
+                            {# Field: confirm password #}
+                            <tr>
+                                <td>{{ form.confirm.label(class_="label") }}</td>
+                                <td>{{ form.confirm(class_="input is-small", type="password") }}</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    {% if form.confirm.errors %}
+                                        {% for error in form.confirm.errors %}
+                                            <p class="help is-danger">{{ error }}</p>
+                                        {% endfor %}
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card-shadow">
+                    <table class="form-table">
+                        <tbody>
+                            {# Field: character name #}
+                            <tr>
+                                <td>{{ char_form.name.label(class_="label") }}</td>
+                                <td>{{ char_form.name(class_="input is-small", type="text") }}</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    {% if char_form.name.errors %}
+                                        {% for error in char_form.name.errors %}
+                                            <p class="help is-danger">{{ error }}</p>
+                                        {% endfor %}
+                                    {% endif %}
+                                </td>
+                            </tr>
+
+                            {# Field: character sex #}
+                            <tr>
+                                <td>{{ char_form.sex.label(class_="label") }}</td>
+                                <td>
+                                    {% for subfield in char_form.sex %}
+                                        {% if loop.first %}
+                                            {{ subfield(checked=True) }}
+                                        {% else %}
+                                            {{ subfield }}
+                                        {% endif %}
+                                        {{ subfield.label }}
+                                    {% endfor %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    {% if char_form.sex.errors %}
+                                        {% for error in char_form.sex.errors %}
+                                            <p class="help is-danger">{{ error }}</p>
+                                        {% endfor %}
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="has-text-centered">
+                    <button class="btn blue-btn blue-btn--small">
+                        <div class="s-submit-btn"></div>
+                    </button>
+                </div>
+            </form>
+        {% endcall %}
+    {% endcall %}
+{% endblock %}

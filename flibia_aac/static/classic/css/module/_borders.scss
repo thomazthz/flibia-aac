@@ -1,0 +1,107 @@
+.h-stone-border {
+    height:6px;
+    background-image: url("../../img/border-1.gif");
+    position: relative;
+
+    &:before, &:after {
+        content: "";
+        position: absolute;
+        background-image: url("../../img/corner-tl.gif");
+        background-repeat: no-repeat;
+        width: 17px;
+        height: 17px;
+        top: -4px;
+    }
+
+    &:before {
+        left: -5px;
+    }
+
+    &:after {
+        transform: scaleX(-1);
+        right: -5px;
+    }
+
+    &--inverted {
+        &:before, &:after {
+            transform: scale(1, -1);
+            top: -7px;
+        }
+
+        &:after {
+            transform: scale(-1, -1);
+        }
+    }
+}
+
+.h-rock-border {
+    position: absolute;
+    background-image: url("../../img/box-frame-horizontal.gif");
+    height: 4px;
+    width: 100%;
+    left: 0;
+    top: -4px;
+
+    &:before {
+        content: "";
+        position: absolute;
+        background-image: url("../../img/box-frame-edge.gif");
+        background-repeat: no-repeat;
+        width: 5px;
+        height: 5px;
+        left: -2px;
+        top: -1px;
+    }
+
+    &:after {
+        content: "";
+        position: absolute;
+        background-image: url("../../img/box-frame-edge.gif");
+        background-repeat: no-repeat;
+        width: 5px;
+        height: 5px;
+        right: -2px;
+        top: -1px;
+    }
+
+    &--bottom {
+        top: unset;
+        bottom: -4px;
+
+        &:before, &:after {
+            top: 0;
+        }
+    }
+}
+
+.v-rock-border {
+    position: absolute;
+    height: 100%;
+    background-image: url("../../img/box-frame-vertical.gif");
+    width: 3px;
+    left: -1px;
+    top: 0;
+
+    &--right {
+        left: unset;
+        right: -1px;
+    }
+}
+
+.v-chain-border {
+    background-image: url("../../img/chain.gif"), url("../../img/chain.gif");
+    background-repeat: repeat-y, repeat-y;
+    background-position: left, right;
+}
+
+.h-box-border {
+    background-image: url("../../img/box-top.gif");
+    background-repeat: no-repeat;
+    height: 12px;
+    width: 180px;
+
+    &--inverted {
+        transform: scaleY(-1);
+        filter: FlipV;
+    }
+}

@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    {% call card("My Account") %}
+        <table>
+            <tbody>
+                <tr>
+                    <td>Account name;</td>
+                    <td>{{ account.name }}</td>
+                </tr>
+                <tr>
+                    <td>Email;</td>
+                    <td>{{ account.email }}</td>
+                </tr>
+                <tr>
+                    <td>Data de criação</td>
+                    <td>{{ account.creation }}</td>
+                </tr>
+                <tr>
+                    <td>Premium</td>
+                    <td>{{ account.premdays }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>New Character</h2>
+        <form method="POST" action="{{ url_for('player.create_character') }}">
+            {{ char_creation_form.csrf_token }}
+
+            {# Field: character name #}
+            <div class="field">
+                {{ char_creation_form.name.label(class_="label") }}
+                <div class="control">
+                    {{ char_creation_form.name(class_="input", type="text") }}
+                </div>
+            </div>
+            {% if char_creation_form.name.errors %}
+                {% for error in char_creation_form.name.errors %}
+                    <p class="help is-danger">{{ error }}</p>
+                {% endfor %}
+            {% endif %}
+
+            {# Field: sex #}
+            <div class="field">
+                <div class="control">
+                    {% for subfield in char_creation_form.sex %}
+                        {% if loop.first %}
+                            {{ subfield(checked=True) }}
+                        {% else %}
+                            {{ subfield }}
+                        {% endif %}
+                        {{ subfield.label }}
+                    {% endfor %}
+                </div>
+            </div>
+            {% if char_creation_form.sex.errors %}
+                {% for error in char_creation_form.sex.errors %}
+                    <p class="help is-danger">{{ error }}</p>
+                {% endfor %}
+            {% endif %}
+            <input type="submit" value="Criar">
+        </form>
+
+        <h2>Characters</h2>
+        {% for char in account.characters %}
+            <a href="{{ url_for('player.profile', name=char.name) }}">
+                <div>
+                    <h3>name: {{ char.name }}</h3>
+                    <p>lvl: {{ char.level }}</p>
+                </div>
+            </a>
+        {% endfor %}
+    {% endcall %}
+
+{% endblock content %}

@@ -1,0 +1,94 @@
+.menu {
+    width: 170px;
+
+    .menu__button {
+        display: flex;
+        align-items: stretch;
+        padding: 0 8px;
+        background-image: url("../../img/button-background.gif");
+        height: 32px;
+        cursor: pointer;
+        color: $beige-dark;
+        font-family: $family-special;
+        font-weight: normal;
+        font-size: $menu-button-fontsize;
+        text-shadow:
+            -1px -1px 0 $grey-darker,
+            1px -1px 0 $grey-darker,
+            -1px 1px 0 $grey-darker,
+            1px 1px 0 $grey-darker;
+
+        .menu__icon {
+            width: 2rem;
+            height: 2rem;
+            flex-basis: auto;
+
+            &--news {
+                background-image: url("../../img/icon-news.gif");
+            }
+
+            &--community {
+                background-image: url("../../img/icon-community.gif");
+            }
+
+            &--account {
+                background-image: url("../../img/icon-account.gif");
+            }
+        }
+
+        span {
+            flex-grow: 2;
+            line-height: 1.8;
+            text-align: center;
+        }
+    }
+
+    .menu__list {
+        list-style: none;
+        font-size: $default-header-fontsize;
+        font-weight: bold;
+        display: none;
+        background-color: $deep-bluish-green;
+
+        &-item {
+            border-bottom: 1px solid $menu-border-bottom-color;
+            padding: 0 7px;
+
+            a {
+                display: block;
+                color: $grey-light;
+
+                &:hover {
+                    background-color: $deep-bluish-green-light;
+                    color: $white;
+                }
+            }
+
+            &:before {
+                content: "";
+                background-image: url("../../img/icon-activesubmenu.gif");
+                background-repeat: no-repeat;
+                background-position: center;
+                width: 0.625rem;
+                height: 1.25rem;
+                float: left;
+                margin: 0 3px;
+                visibility: hidden;
+            }
+
+            &.active {
+                a {
+                    color: $white;
+                }
+
+                &:before {
+                    visibility: visible;
+                }
+            }
+        }
+
+        &.active {
+            display: block;
+        }
+    }
+}

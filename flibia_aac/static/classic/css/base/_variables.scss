@@ -1,0 +1,52 @@
+/* === COLORS === */
+$cream: #F1E0C6;
+$cream-dark: #D4C0A1;
+$beige: #efd0a4;
+$beige-light: #FFF2db;
+$beige-dark: #debb9d;
+$white-smoke-light: #d7d7d7;
+$cinnamon: #5A2800;
+$caramel: #793d03;
+$wood: #5f4d41;
+$brown-light: #d4c0a1;
+$grey-light: #d7d7d7;
+$grey: #55636c;
+$grey-dark: #3a3738;
+$midnight-blue: #051122;
+$deep-bluish-green: #0D2E2B;
+$deep-bluish-green-light: #14433f;
+$blue-teal: #4b7874;
+$yellow: #f5cf4d;
+
+$side-menu-color: $white-smoke-light;
+$side-menu-color-active: white;
+
+$body-background-color: $midnight-blue;
+$content-header-title-color: $beige;
+$content-panel-background: $beige-dark;
+$content-panel-border-color: $caramel;
+$content-inner-panel-background: $beige-light;
+$content-panel-container-border-color: $grey-dark;
+$menu-border-bottom-color: $blue-teal;
+
+$content-color: $cinnamon;
+
+/* === FONT === */
+@font-face {
+    font-family: "Martel";
+    src:  url("../../font/martel.ttf") format("truetype");
+}
+
+$family-special: "Martel";
+$family-green-header: $family-special;
+$family-primary: "Verdana", "Arial", "Times New Roman", "sans-serif";
+
+$green-header-fontsize: 1.5rem;
+$default-header-fontsize: 0.8333333333333334rem; // 10 pt
+$news-date-fontsize: 0.5833333333333334rem;
+$menu-button-fontsize: 1.25rem;
+
+
+/* === PADDINGS AND MARGINS === */
+$padding-025: 0.25rem;
+$padding-0625: 0.625rem;

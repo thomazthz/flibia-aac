@@ -1,0 +1,22 @@
+// Overwrite bulma form classes
+.label {
+    color: $cinnamon;
+    text-align: left;
+    font-size: $default-header-fontsize;
+}
+
+.field-label {
+    margin-right: 0;
+}
+
+
+// Custom classes
+.form-table {
+    width: 100%;
+    border-spacing: 5px 5px;
+    border-collapse: separate;
+
+    td, td > * {
+        vertical-align: middle;
+    }
+}

@@ -1,0 +1,68 @@
+.btn {
+    border: unset;
+    padding: 0
+}
+
+.blue-btn {
+    background-color: lightgray;
+
+    &--thick {
+        width: 150px;
+        height: 37px;
+        background-image: url("../../img/mediumbutton.gif");
+        &:hover {
+            background-image: url("../../img/mediumbutton-over.gif");
+        }
+    }
+
+    &--small {
+        width: 135px;
+        height: 25px;
+        background-image: url("../../img/sbutton.gif");
+
+        &:hover {
+            background-image: url("../../img/sbutton_over.gif"), url("../../img/sbutton.gif");
+        }
+    }
+
+    & > div {
+        width: inherit;
+        height: inherit;
+    }
+}
+
+.login-btn {
+    background-image: url("../../img/mediumbutton_login.png");
+}
+
+.download-btn {
+    background-image: url("../../img/mediumbutton_download.png");
+}
+
+.create-account-btn {
+    background-image: url("../../img/mediumbutton_createaccount.png");
+}
+
+.s-login-btn {
+    background-image: url("../../img/_sbutton_login.gif");
+}
+
+.s-account-lost-btn {
+    background-image: url("../../img/_sbutton_accountlost.gif");
+}
+
+.s-submit-btn {
+    background-image: url("../../img/_sbutton_submit.gif");
+}
+
+.s-create-account-btn {
+    background-image: url("../../img/loginbox-font-create-account.gif");
+    background-color: transparent;
+    width: 124px;
+    height: 11px;
+    margin: 2px 0;
+
+    &:hover{
+        background-image: url("../../img/loginbox-font-create-account-over.gif");
+    }
+}

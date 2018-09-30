@@ -1,0 +1,18 @@
+.columns {
+    display: flex;
+
+    .column {
+        display: block;
+        flex-basis: auto;
+
+        margin: 0 15px;
+        width: 180px;
+        min-width: 180px;
+
+        &--content {
+            width: 790px;
+            max-width: 790px;
+            margin: 0;
+        }
+    }
+}

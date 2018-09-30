@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% from "macros.html" import table %}
+
+{% block content %}
+    {% call card("Characters") %}
+        {% call inner_card("Search Character") %}
+            {% if not player and 'name' in request.args %}
+                Character "{{ request.args.name }}" not found
+            {% endif %}
+            <form method="GET" action="/character/profile">
+                <div class="card-shadow">
+                    <table class="form-table">
+                        <tbody>
+                            <tr>
+                                <td>{{ form.name.label(class_="label") }}</td>
+                                <td>{{ form.name(class_="input is-small") }}</td>
+                                <td>
+                                    <button class="btn blue-btn blue-btn--small ">
+                                        <div class="s-submit-btn"></div>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+        {% endcall %}
+
+        {% if player %}
+            {% call inner_card("Character Information") %}
+                {% call table() %}
+                    <tr>
+                        <td>Name</td>
+                        <td>{{ player.name }}</td>
+                    </tr>
+                    <tr>
+                        <td>Sex</td>
+                        <td>{{ player.sex }}</td>
+                    </tr>
+                    <tr>
+                        <td>Vocation</td>
+                        <td>{{ player.vocation }}</td>
+                    </tr>
+                    <tr>
+                        <td>Level</td>
+                        <td>{{ player.level }}</td>
+                    </tr>
+                    <tr>
+                        <td>Residence</td>
+                        <td>{{ player.town_id }}</td>
+                    </tr>
+                    <tr>
+                        <td>Last Login</td>
+                        <td>{{ player.lastlogin }}</td>
+                    </tr>
+                {% endcall %}
+            {% endcall %}
+
+            {% call inner_card("Deaths") %}
+                {% call table() %}
+                    {% for death in player.deaths %}
+                        <tr>
+                            <td>{{ death.time | pretty_datetime }}</td>
+                            <td>Died at level {{ death.level }} by {{ death.killed_by }}.</td>
+                        </tr>
+                    {% endfor %}
+                {% endcall %}
+            {% endcall %}
+        {% endif %} {# end if player #}
+    {% endcall %}
+{% endblock content %}

@@ -1,0 +1,20 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[dev-packages]
+sqlacodegen = "*"
+flask-shell-ipython = "*"
+
+[packages]
+flask = "*"
+sqlalchemy = "*"
+pymysql = "*"
+flask-sqlalchemy = "*"
+flask-wtf = "*"
+flask-login = "*"
+itsdangerous = "*"
+
+[requires]
+python_version = "3.5"

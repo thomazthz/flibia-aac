@@ -1,0 +1,82 @@
+$card-padding: $padding-025;
+$card-extra-padding: $padding-0625;
+$card-inner-border: $black;
+$card-header-background-color: $wood;
+
+.card {
+    margin-bottom: 2rem;
+    border-left: 2px solid $content-panel-container-border-color;
+    border-right: 2px solid $content-panel-container-border-color;
+
+
+    .card__content-wrapper {
+        padding: $card-padding;
+        background-color: $beige-dark;
+    }
+
+    .card__content {
+        background-color: $beige-light;
+        background-image: url("../../img/scroll.gif");
+        padding: 0.4rem 0.25rem 0.25rem 0.25rem;
+        border: 1px solid $content-panel-border-color;
+        color: $content-color;
+
+        &--extra-padding {
+            padding: $card-extra-padding;
+        }
+    }
+
+    .card__header {
+        position: relative;
+        padding: $box-padding / 2 0 $box-padding / 4 $box-padding * 2;
+        height: 21px;
+        color: $beige;
+        line-height: 1;
+        font-size: $default-header-fontsize;
+
+        &--brown {
+            height: 27px;
+            font-family: $family-primary;
+            color: $white;
+            background-color: $card-header-background-color;
+            line-height: 1.5;
+
+            & > h2{
+                margin-left: 4px;
+            }
+        }
+
+        &--green {
+            height: 24px;
+            background-image: url("../../img/title-background-green.gif");
+            background-repeat: repeat-x;
+            font-size: $green-header-fontsize;
+            font-family: $family-green-header;
+            font-weight: normal;
+            text-shadow:
+                -1px -1px 0 $grey-darker,
+                1px -1px 0 $grey-darker,
+                -1px 1px 0 $grey-darker,
+                1px 1px 0 $grey-darker;
+        }
+    }
+
+    &--inner {
+        margin-bottom: 1rem;
+        border: 1px solid $card-inner-border;
+
+        .card__content {
+            border: 2px solid $grey;
+        }
+    }
+}
+
+.card-shadow {
+    border: 1px solid $beige-light;
+    outline: 1px solid $wood;
+    background-color: $brown-light;
+    box-shadow: 3px 3px 4px 0px $cinnamon;
+    margin: 8px;
+    padding: 4px;
+}
+

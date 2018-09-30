@@ -1,0 +1,46 @@
+.news_ticker {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+
+    &:nth-of-type(odd) {
+        background-color: $white;
+    }
+}
+
+.news__container {
+    margin-top: 1.125rem;
+    padding: 0.35rem;
+
+    .news__headline {
+        background-image: url("../../img/newsheadline_background.gif");
+        background-repeat: repeat-x;
+        height: 28px;
+        color: $white;
+        font-family: $family-primary;
+        font-size: $default-header-fontsize;
+        font-weight: bold;
+        padding: 0 2rem;
+
+        span {
+            font-size: $news-date-fontsize;
+        }
+
+        h2 {
+            font-weight: bold;
+        }
+
+        .level-item {
+            margin-right: 1.5rem;
+        }
+    }
+
+    .news__text {
+        padding: 1.0rem 0.5rem;
+        p:first-of-type:first-letter {
+            font-size: 200%;
+            font-weight: bold;
+            font-family: $family-special;
+        }
+    }
+}

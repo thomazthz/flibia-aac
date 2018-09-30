@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    {% call card("Highscores") %}
+        {% call inner_card("Highscores filter") %}
+        <div class="level">
+            <div class="level-item highscore__filter highscore__filter--primary">
+                <a href="{{ url_for('player.highscores', vocation=request.args.vocation or 'all', highscore_category='experience') }}">
+                    Experience
+                </a>
+            </div>
+            <div class="level-item highscore__filter highscore__filter--primary">
+                <a href="{{ url_for('player.highscores', vocation=request.args.vocation or 'all', highscore_category='magic_level') }}">
+                    Magic level
+                </a>
+            </div>
+            <div class="level-item highscore__filter highscore__filter--primary">
+                <a href="{{ url_for('player.highscores', vocation=request.args.vocation or 'all', highscore_category='fist') }}">
+                    Fist
+                </a>
+            </div>
+            <div class="level-item highscore__filter highscore__filter--primary">
+                <a href="{{ url_for('player.highscores', vocation=request.args.vocation or 'all', highscore_category='club') }}">
+                    Club
+                </a>
+            </div>
+            <div class="level-item highscore__filter highscore__filter--primary">
+                <a href="{{ url_for('player.highscores', vocation=request.args.vocation or 'all', highscore_category='sword') }}">
+                    Sword
+                </a>
+            </div>
+            <div class="level-item highscore__filter highscore__filter--primary">
+                <a href="{{ url_for('player.highscores', vocation=request.args.vocation or 'all', highscore_category='axe') }}">
+                    Axe
+                </a>
+            </div>
+            <div class="level-item highscore__filter highscore__filter--primary">
+                <a href="{{ url_for('player.highscores', vocation=request.args.vocation or 'all', highscore_category='dist') }}">
+                    Dist
+                </a>
+            </div>
+            <div class="level-item highscore__filter highscore__filter--primary">
+                <a href="{{ url_for('player.highscores', vocation=request.args.vocation or 'all', highscore_category='shielding') }}">
+                    shielding
+                </a>
+            </div>
+            <div class="level-item highscore__filter highscore__filter--primary">
+                <a href="{{ url_for('player.highscores', vocation=request.args.vocation, highscore_category='fishing') }}">
+                    Fishing
+                </a>
+            </div>
+        </div>
+        <div class="level">
+            <div class="level-item highscore__filter highscore__filter--secondary">
+                <a href="{{ url_for('player.highscores', vocation='all', highscore_category=request.args.highscore_category or 'experience') }}">
+                    All
+                </a>
+            </div>
+            <div class="level-item highscore__filter highscore__filter--secondary">
+                <a href="{{ url_for('player.highscores', vocation='rookie', highscore_category=request.args.highscore_category or 'experience') }}">
+                    Rookie
+                </a>
+            </div>
+            <div class="level-item highscore__filter highscore__filter--secondary">
+                <a href="{{ url_for('player.highscores', vocation='sorcerer', highscore_category=request.args.highscore_category or 'experience') }}">
+                    Sorcerer
+                </a>
+            </div>
+            <div class="level-item highscore__filter highscore__filter--secondary">
+                <a href="{{ url_for('player.highscores', vocation='druid', highscore_category=request.args.highscore_category or 'experience') }}">
+                    Druid
+                </a>
+            </div>
+            <div class="level-item highscore__filter highscore__filter--secondary">
+                <a href="{{ url_for('player.highscores', vocation='paladin', highscore_category=request.args.highscore_category or 'experience') }}">
+                    Paladin
+                </a>
+            </div>
+            <div class="level-item highscore__filter highscore__filter--secondary">
+                <a href="{{ url_for('player.highscores', vocation='knight', highscore_category=request.args.highscore_category or 'experience') }}">
+                    Knight
+                </a>
+            </div>
+        </div>
+        {% endcall %}
+
+        {% call inner_card("Highscores") %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Level</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for player in players %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ player.name }}</td>
+                    <td>{{ player[highscore_category] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endcall %}
+    {% endcall %}
+{% endblock content %}

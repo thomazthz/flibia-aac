@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% from "macros.html" import table %}
+
+
+{% block content %}
+    {% call card("Kill statistics") %}
+        {% call inner_card("Latest deaths") %}
+            {% call table() %}
+                {% for death in deaths %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ death.time | pretty_datetime }}</td>
+                        <td>
+                            <a href="{{ url_for('player.profile', name=death.player.name) }}">{{ death.player.name }}</a> Killed at {{ death.level }} by {{ death.killed_by }}
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% endcall %}
+        {% endcall %}
+    {% endcall %}
+{% endblock content %}

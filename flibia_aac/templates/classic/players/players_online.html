@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% from "macros.html" import table %}
+
+{% block content %}
+    {% call card("Who is online") %}
+        {% call inner_card("World Information") %}
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>Status</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Players Online</td>
+                        <td>{{ players_count }}</td>
+                    </tr>
+                    <tr>
+                        <td>Online Record</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Creation Date</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>PvP Type</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        {% endcall %}
+
+        {% if players %}
+            {% call inner_card("Players online") %}
+                {% call table() %}
+                    <tr>
+                        <td>Name</td>
+                        <td>Level</td>
+                        <td>Vocation</td>
+                    </tr>
+                    {% for player in players %}
+                        <tr>
+                            <td>{{ player.name }}</td>
+                            <td>{{ player.level }}</td>
+                            <td>{{ player.vocation }}</td>
+                        </tr>
+                    {% endfor %}
+                {% endcall %}
+            {% endcall %}
+        {% endif %}
+    {% endcall %}
+{% endblock content %}

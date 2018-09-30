@@ -1,0 +1,89 @@
+{% macro card(title, extra_padding=True) %}
+<section class="section">
+    <div class="card">
+        <div class="h-stone-border"></div>
+        <div class="card__header card__header--green">
+            <h2>{{ title }}</h2>
+        </div>
+        <div class="card__content-wrapper">
+            <div class="card__content {% if extra_padding %} card__content--extra-padding {% endif %}">
+                {{ caller() }}
+            </div>
+        </div>
+        <div class="h-stone-border h-stone-border--inverted"></div>
+    </div>
+</section>
+{% endmacro %}
+
+{% macro inner_card(title, brown_header=True) %}
+<div class="card card--inner">
+    {% if brown_header %}
+    <div class="card__header card__header--brown">
+        <div class="h-rock-border"></div>
+        <div class="v-rock-border"></div>
+        <h2 class="has-text-weight-bold">{{ title }}</h2>
+        <div class="v-rock-border v-rock-border--right"></div>
+        <div class="h-rock-border h-rock-border--bottom"></div>
+    </div>
+    {% else %}
+    <div class="card__header">
+        <h2 class="has-text-weight-bold">{{ title }}</h2>
+    </div>
+    {% endif %}
+
+    <div class="card__content">
+        {{ caller() }}
+    </div>
+</div>
+{% endmacro %}
+
+{% macro menu_button(icon, title) %}
+<div class="menu__button">
+    <i class="menu__icon menu__icon--{{ icon }}"></i>
+    <span>{{ title }}</span>
+</div>
+{% endmacro %}
+
+{% macro menu_item(item, endpoint) %}
+<li class="menu__list-item {% if endpoint == request.endpoint %}active{% endif %}">
+    <a href="{{ url_for(endpoint, **kwargs) }}">{{ item }}</a>
+</li>
+{% endmacro %}
+
+{% macro chain_box() %}
+<div class="box rock-background">
+    <div class="h-box-border"></div>
+    <div class="box box-aside v-chain-border">
+        {{ caller() }}
+    </div>
+    <div class="h-box-border h-box-border--inverted"></div>
+</div>
+{% endmacro %}
+
+
+{% macro right_widget(title) %}
+<aside class="box">
+    <div class="widget-header">
+        <h2>{{ title }}</h2>
+    </div>
+    <div class="box box-aside">
+        {{ caller() }}
+    </div>
+    <div class="h-box-border h-box-border--inverted"></div>
+</aside>
+{% endmacro %}
+
+{% macro table(header=None) %}
+<table class="table is-striped is-narrow is-fullwidth">
+    {% if header %}
+        <thead>
+            <tr>
+                <th>{{ header }}</th>
+            </tr>
+        </thead>
+    {% endif %}
+    <tbody>
+        {{ caller() }}
+    </tbody>
+</table>
+{% endmacro %}

@@ -1,0 +1,118 @@
+{% from "macros.html" import card, inner_card, menu_button, menu_item, chain_box, table, right_widget %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Flibia AAC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static', filename='dist/css/main.css') }}" />
+    <script src="{{ url_for('static', filename='dist/js/main.js') }}"></script>
+</head>
+<body>
+    <section>
+        <div class="background-artwork has-text-centered"></div>
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    {% call chain_box() %}
+                        <a class="btn blue-btn blue-btn--thick" href="{{ url_for('account.detail') }}">
+                            <div class="login-btn"></div>
+                        </a>
+                        <a class="btn s-create-account-btn" href="{{ url_for('account.register') }}"></a>
+                    {% endcall %}
+
+                    {% call chain_box() %}
+                        <a class="btn blue-btn blue-btn--thick" href="">
+                            <div class="download-btn"></div>
+                        </a>
+                    {% endcall %}
+
+                    {% call chain_box() %}
+                        <aside class="menu">
+                            {{ menu_button("news", "News") }}
+                            <ul class="menu__list v-chain-border">
+                                {{ menu_item("Latest News", "core.index") }}
+                            </ul>
+
+                            {{ menu_button("community", "Community") }}
+                            <ul class="menu__list v-chain-border">
+                                {{ menu_item("Characters", "player.profile") }}
+                                {{ menu_item("Who is online", "player.players_online") }}
+                                {{ menu_item("Kill Statistics", "player.latest_deaths") }}
+                                {{ menu_item("Highscores", "player.highscores", vocation="all", attr_filter="experience") }}
+                            </ul>
+
+                            {# {{ menu_button("wars", "Wars") }}
+                            <ul class="menu__list">
+                                {{ menu_item("Top Guilds", "core.index") }}
+                                {{ menu_item("Top Fragers", "core.index") }}
+                                {{ menu_item("Hunted System", "core.index") }}
+                            </ul> #}
+
+                            {{ menu_button("account", "Account") }}
+                            <ul class="menu__list v-chain-border">
+                                {{ menu_item("Account Management", "account.detail") }}
+                                {{ menu_item("Create Account", "account.register") }}
+                                {{ menu_item("Lost Account?", "core.index") }}
+                            </ul>
+
+                            {# {{ menu_button("shop", "Shop") }}
+                            <ul class="menu__list">
+                                {{ menu_item("Shop", "core.index") }}
+                            </ul> #}
+                        </aside>
+                    {% endcall %}
+                </div>
+
+                <div class="column column--content">
+                    {% block content %}{% endblock %}
+                </div>
+
+                <div class="column">
+
+                    {% call right_widget("Top Experience") %}
+                        {% call table() %}
+                            <tr>
+                                <td>1</td>
+                                <td>Player</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Player</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Player</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Player</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Player</td>
+                            </tr>
+                        {% endcall %}
+                    {% endcall %}
+
+                    {% call right_widget("General Info") %}
+                        <div></div>
+                        <div>
+                            <p>Online: 1234</p>
+                            <p>Client: 11.66</p>
+                        </div>
+                    {% endcall %}
+
+                    {% call right_widget("Generic Widget") %}
+                        <img src="{{ url_for('static', filename='img/170x150.png') }}" alt="">
+                    {% endcall %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</body>
+</html>

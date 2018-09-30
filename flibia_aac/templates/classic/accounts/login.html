@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% call card("Account Management") %}
+        {% call inner_card("Account Login") %}
+            {% if form.errors %}
+            <ul class="errors">
+                {% for field_name, field_errors in form.errors|dictsort if field_errors %}
+                    {% for error in field_errors %}
+                        <li class="help is-danger">{{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <div class="card-shadow">
+                <form method="POST" action="/login">
+                    <table class="form-table">
+                       {{ form.csrf_token }}
+                        <tbody>
+                            <tr>
+                                <td>{{ form.name.label(class_="label") }}</td>
+                                <td>{{ form.name(class_="input is-small", type="text", size=35, tabindex=1) }}</td>
+                                <td class="has-text-right">
+                                    <button class="btn blue-btn blue-btn--small">
+                                        <div class="s-login-btn"></div>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>{{ form.password.label(class_="label") }}</td>
+                                <td>{{ form.password(class_="input is-small", type="password", size=35, tabindex=2) }}</td>
+                                <td class="has-text-right">
+                                    <button class="btn blue-btn blue-btn--small">
+                                        <div class="s-account-lost-btn" tabindex=3></div>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        {% endcall %}
+
+        <h3 class="centered-title has-text-centered">New to Tibia?</h3>
+
+        {% call inner_card("New Player") %}
+            <div class="card-shadow">
+                <div class="box horizontal space-between">
+                    <div>
+                        Tibia...
+                        <p>... where hardcore gaming meets fantasy.</p>
+                        <p>... where friendships last a lifetime.</p>
+                        <p>... unites adventurers since 1997!</p>
+                    </div>
+                    <a class="btn blue-btn blue-btn--thick" href="{{ url_for('account.register') }}">
+                        <div class="create-account-btn"></div>
+                    </a>
+                </div>
+            </div>
+        {% endcall %}
+    {% endcall %}
+{% endblock %}

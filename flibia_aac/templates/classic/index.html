@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+
+{% block header_title %}News ticker{% endblock header_title %}
+
+{% block content %}
+    {% call card("News ticker", extra_padding=False) %}
+        <div class="news_ticker">
+            Jan 01 1900 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis orci lectus.
+        </div>
+        <div class="news_ticker">
+            Jan 01 1900 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis orci lectus.
+        </div>
+        <div class="news_ticker">
+            Jan 01 1900 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis orci lectus.
+        </div>
+        <div class="news_ticker">
+            Jan 01 1900 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis orci lectus.
+        </div>
+        <div class="news_ticker">
+            Jan 01 1900 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis orci lectus.
+        </div>
+    {% endcall %}
+
+    {% call card("Featured Article", extra_padding=False) %}
+        <h3>Lorem Ipsum</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis orci lectus. Nullam tincidunt velit odio, maximus cursus urna facilisis eget. Maecenas rhoncus massa sed rhoncus gravida. Vivamus elit diam, efficitur sed urna non, pulvinar egestas nulla. Nam aliquam massa eu orci finibus elementum. Pellentesque efficitur enim a justo euismod luctus. Sed aliquam, dui eget ullamcorper pharetra, lorem lorem hendrerit turpis, sed efficitur felis nisi id nisl.</p>
+    {% endcall %}
+
+    {% call card("Latest news", extra_padding=False) %}
+        <div class="news__container">
+            <div class="news__headline level has-text-left">
+                <div class="level-left">
+                    <span class="level-item">Sep 18 2018</span>
+                    <h2 class="level-item">Lorem Ipsum</h2>
+                </div>
+            </div>
+            <div class="news__text">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis orci lectus. Nullam tincidunt velit odio, maximus cursus urna facilisis eget. Maecenas rhoncus massa sed rhoncus gravida. Vivamus elit diam, efficitur sed urna non, pulvinar egestas nulla. Nam aliquam massa eu orci finibus elementum. Pellentesque efficitur enim a justo euismod luctus. Sed aliquam, dui eget ullamcorper pharetra, lorem lorem hendrerit turpis, sed efficitur felis nisi id nisl. .</p>
+            </div>
+        </div>
+        <div class="news__container">
+            <div class="news__headline level has-text-left">
+                <div class="level-left">
+                    <span class="level-item">Sep 10 2018</span>
+                    <h2 class="level-item">Lorem Ipsum</h2>
+                </div>
+            </div>
+            <div class="news__text">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis orci lectus. Nullam tincidunt velit odio, maximus cursus urna facilisis eget. Maecenas rhoncus massa sed rhoncus gravida. Vivamus elit diam, efficitur sed urna non, pulvinar egestas nulla. Nam aliquam massa eu orci finibus elementum. Pellentesque efficitur enim a justo euismod luctus. Sed aliquam, dui eget ullamcorper pharetra, lorem lorem hendrerit turpis, sed efficitur felis nisi id nisl. </p>
+            </div>
+        </div>
+    {% endcall %}
+{% endblock %}
