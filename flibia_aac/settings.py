@@ -14,6 +14,8 @@ class Config(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     TIME_ZONE = 'UTC'
 
+    MAIL_DEFAULT_SENDER = 'no-reply@flibia.com'
+
 
 class ProductionConfig(Config):
     """Production configuration."""
@@ -24,6 +26,12 @@ class ProductionConfig(Config):
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URI',
                                              'mysql://user:pass@localhost/{}'.format(DB_NAME))
 
+    MAIL_SERVER = 'smtp.googlemail.com'
+    MAIL_USERNAME = os.environ.get('MAIL_USERNAME')  # MAIL_USERNAME=your@email.address
+    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')  # MAIL_PASSWORD=your_password
+    MAIL_PORT = 465
+    MAIL_USE_SSL = True
+
 
 class DevelopmentConfig(Config):
     """Development configuration."""
@@ -33,6 +41,9 @@ class DevelopmentConfig(Config):
     DB_NAME = 'flibia_dev'
     SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://flibia:password@localhost/{}'.format(DB_NAME)
     SQLALCHEMY_ECHO = True
+
+    MAIL_PORT = 1025
+    MAIL_SERVER = 'localhost'
 
 
 class TestConfig(Config):

@@ -17,6 +17,7 @@ flask-wtf = "*"
 flask-login = "*"
 itsdangerous = "*"
 arrow = "*"
+flask-mail = "*"
 
 [requires]
 python_version = "3.5"
