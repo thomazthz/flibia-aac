@@ -21,6 +21,10 @@ class RegistrationForm(FlaskForm):
         if db.session.query(db.func.count(Account.id)).filter_by(name=field.data).scalar():
             raise ValidationError('This "Account name" is already taken')
 
+    def validate_email(self, field):
+        if db.session.query(db.func.count(Account.id)).filter_by(email=field.data).scalar():
+            raise ValidationError('This email is already used')
+
 
 class LoginForm(FlaskForm):
     name = StringField('Account name:', validators=[DataRequired(), Length(min=6, max=32)])
