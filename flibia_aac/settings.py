@@ -7,6 +7,7 @@ class Config(object):
     """Base configuration."""
 
     SECRET_KEY = '=!=!=!= PLEASE,CHANGE THIS SECRET KEY, OK?... =!=!=!='
+    TOKEN_SALT = '=!=!=!= TOKEN-SALT-KEY (do not forget to change it) =!=!=!='
     APP_DIR = os.path.abspath(os.path.dirname(__file__))  # This directory
     PROJECT_ROOT = os.path.abspath(os.path.join(APP_DIR, os.pardir))
     THEME_NAME = 'classic'

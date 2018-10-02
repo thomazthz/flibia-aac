@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% call card("Account Management") %}
+        {% call inner_card("Register confirmation") %}
+            <div class="card-shadow">
+                <p>You have not confirmed your email address</p>
+                <p>Please check your inbox and spam folder</p>
+                <p>Didn't receive the email? <a href="{{ url_for('account.unconfirmed') }}">Click here to resend</a></p>
+            </div>
+        {% endcall %}
+    {% endcall %}
+{% endblock content %}
