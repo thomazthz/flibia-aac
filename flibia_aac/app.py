@@ -1,15 +1,10 @@
 import os
 
 from flask import Flask
-from flask_wtf.csrf import CSRFProtect
-from flask_login import LoginManager
 
 from .db import db
+from .extensions import csrf, login_manager
 from .settings import get_config_object
-
-
-csrf = CSRFProtect()
-login_manager = LoginManager()
 
 
 def create_app(config_name=None, test=False):
@@ -22,12 +17,12 @@ def create_app(config_name=None, test=False):
     app.template_folder = 'templates/{}'.format(app.config['THEME_NAME'])
     app.static_folder = 'static/{}'.format(app.config['THEME_NAME'])
 
-    register_login_manager(app)
     register_blueprints(app)
     register_database(app)
     register_extensions(app)
 
     return app
+
 
 def register_blueprints(app):
     from flibia_aac.core.views import core
@@ -48,10 +43,6 @@ def register_login_manager(app):
         return Account.query.get(account_id)
 
 
-def register_csrf_protect(app):
-    csrf.init_app(app)
-
-
 def register_database(app):
     db.init_app(app)
 
@@ -60,4 +51,5 @@ def register_extensions(app):
     from flibia_aac.template_filters import configure
     configure(app)
 
-
+    csrf.init_app(app)
+    login_manager.init_app(app)
