@@ -67,6 +67,18 @@
                 </div>
 
                 <div class="column column--content">
+                    {% with messages = get_flashed_messages(with_categories=True) %}
+                        {% if messages %}
+                            {% call inner_card() %}
+                                <ul class="flash_list test">
+                                    {% for category, message in messages %}
+                                        <li class="flash {% if category %}flash--{{ category }}{% endif %}">{{ message }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endcall %}
+                        {% endif %}
+                    {% endwith %}
+
                     {% block content %}{% endblock %}
                 </div>
 

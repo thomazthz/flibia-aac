@@ -3,6 +3,19 @@ body, html {
     font-family: $family-primary;
 }
 
+.flash_list {
+    padding: 0.25rem;
+    font-size: 1.125rem;
+}
+
+.flash {
+    color: $cinnamon;
+
+    &--danger {
+        color: $danger;
+    }
+}
+
 .centered-title {
     color: $cinnamon;
     font-size: 24px;
