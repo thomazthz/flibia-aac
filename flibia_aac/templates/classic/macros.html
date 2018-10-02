@@ -15,19 +15,15 @@
 </section>
 {% endmacro %}
 
-{% macro inner_card(title, brown_header=True) %}
+{% macro inner_card(title=None) %}
 <div class="card card--inner">
-    {% if brown_header %}
+    {% if title %}
     <div class="card__header card__header--brown">
         <div class="h-rock-border"></div>
         <div class="v-rock-border"></div>
         <h2 class="has-text-weight-bold">{{ title }}</h2>
         <div class="v-rock-border v-rock-border--right"></div>
         <div class="h-rock-border h-rock-border--bottom"></div>
-    </div>
-    {% else %}
-    <div class="card__header">
-        <h2 class="has-text-weight-bold">{{ title }}</h2>
     </div>
     {% endif %}
 

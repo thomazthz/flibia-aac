@@ -49,7 +49,7 @@ def register():
 
         send_mail(acc.email, 'Confirm your email', email_body)
 
-        flash('Email verification required.', 'warning')
+        flash('Email verification required.', 'message')
         flash('We have sent you an email with an activation link '
               'to your submitted email address.', 'message')
 
