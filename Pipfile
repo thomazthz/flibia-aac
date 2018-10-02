@@ -6,6 +6,7 @@ name = "pypi"
 [dev-packages]
 sqlacodegen = "*"
 flask-shell-ipython = "*"
+ipdb = "*"
 
 [packages]
 flask = "*"
@@ -15,6 +16,7 @@ flask-sqlalchemy = "*"
 flask-wtf = "*"
 flask-login = "*"
 itsdangerous = "*"
+arrow = "*"
 
 [requires]
 python_version = "3.5"

@@ -18,7 +18,7 @@ class Account(UserMixin, db.Model):
     premdays = db.Column(INTEGER(11), nullable=False, server_default=db.text("'0'"))
     lastday = db.Column(INTEGER(10), nullable=False, server_default=db.text("'0'"))
     email = db.Column(db.String(255), nullable=False, server_default=db.text("''"))
-    creation = db.Column(INTEGER(11), nullable=False, default=time.time, server_default=db.text("'0'"))
+    creation = db.Column(INTEGER(11), nullable=False, server_default=db.text("'0'"))
 
 
 class AccountBan(Account):

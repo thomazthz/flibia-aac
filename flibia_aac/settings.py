@@ -10,8 +10,9 @@ class Config(object):
     APP_DIR = os.path.abspath(os.path.dirname(__file__))  # This directory
     PROJECT_ROOT = os.path.abspath(os.path.join(APP_DIR, os.pardir))
     THEME_NAME = 'classic'
-    FULL_DATETIME_FORMAT = '%b %d %Y, %X'
+    FULL_DATETIME_FORMAT = 'MMM DD YYYY, HH:mm:ss ZZZ'  # Oct 02 2018, 14:12:15 (format https://arrow.readthedocs.io/en/latest/#tokens)
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    TIME_ZONE = 'UTC'
 
 
 class ProductionConfig(Config):
