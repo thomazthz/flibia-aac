@@ -22,6 +22,18 @@ body, html {
     font-weight: bold;
 }
 
+.logo-artwork {
+    position: absolute;
+    background-image: url("../../img/logo_artwork.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 158px;
+    width: 196px;
+    left: 5px;
+    top: -154px;
+    z-index: 1;
+}
+
 .background-artwork {
     background-image: url("../../img/background-artwork.jpg");
     background-position: center;
