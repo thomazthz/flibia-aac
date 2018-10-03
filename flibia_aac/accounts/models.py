@@ -8,6 +8,11 @@ from ..players.models import Player
 
 
 class Account(UserMixin, db.Model):
+    """Account works like a traditional User model
+
+    Model generated with sqlacodegen.
+    Mapped from https://github.com/otland/forgottenserver/blob/master/schema.sql
+    """
     __tablename__ = 'accounts'
 
     id = db.Column(INTEGER(11), primary_key=True)
@@ -22,6 +27,11 @@ class Account(UserMixin, db.Model):
 
 
 class AccountBan(Account):
+    """Information about Account's ban
+
+    Model generated with sqlacodegen.
+    Mapped from https://github.com/otland/forgottenserver/blob/master/schema.sql
+    """
     __tablename__ = 'account_bans'
 
     account_id = db.Column(db.ForeignKey('accounts.id', ondelete='CASCADE', onupdate='CASCADE'), primary_key=True)

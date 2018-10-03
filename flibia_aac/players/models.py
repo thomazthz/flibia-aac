@@ -18,6 +18,11 @@ class Vocation(Enum):
 
 
 class Player(db.Model):
+    """A ingame character.
+
+    Model generated with sqlacodegen.
+    Mapped from https://github.com/otland/forgottenserver/blob/master/schema.sql
+    """
     __tablename__ = 'players'
 
     id = db.Column(INTEGER(11), primary_key=True)
@@ -79,6 +84,11 @@ class Player(db.Model):
 
 
 class PlayerDeaths(db.Model):
+    """Details of character's death
+
+    Model generated with sqlacodegen.
+    Mapped from https://github.com/otland/forgottenserver/blob/master/schema.sql
+    """
     __tablename__ = 'player_deaths'
 
     player_id = db.Column(db.ForeignKey('players.id', ondelete='CASCADE'), nullable=False, index=True, primary_key=True)
@@ -94,6 +104,11 @@ class PlayerDeaths(db.Model):
 
 
 class PlayersOnline(db.Model):
+    """Characters online
+
+    Model generated with sqlacodegen.
+    Mapped from https://github.com/otland/forgottenserver/blob/master/schema.sql
+    """
     __tablename__ = 'players_online'
 
     player_id = db.Column(INTEGER(11), primary_key=True)
