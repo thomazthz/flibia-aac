@@ -1,18 +1,36 @@
 .table {
+    color: $cinnamon;
+    background-color: transparent;
     border: 1px solid $wood;
     border-spacing: 1px;
     border-collapse: separate;
 
-    tbody tr:nth-child(n) {
+    tbody {
         background-color: $cream;
+    }
+
+    tr > td:first-child {
+        width: 20%;
+    }
+
+    &.is-narrow {
+        td, th {
+            padding: 4px;
+            font-size: $default-header-fontsize;
+        }
+    }
+
+    &.is-striped {
+        tr:nth-child(odd) {
+            background-color: $cream-dark;
+        }
+    }
+
+    &.is-fullwidth {
+        width: 100%;
     }
 }
 
-.table tbody tr:nth-child(n) {
-    background-color: $cream;
-}
-
-// Custom classes
 .form-table {
     width: 100%;
     border-spacing: 5px 5px;

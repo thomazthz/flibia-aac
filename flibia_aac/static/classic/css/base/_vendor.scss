@@ -5,16 +5,8 @@ $box-radius: 0;
 $fullhd: 1200px;
 
 
-$table-color: $cinnamon;
-$table-background-color: transparent;
-$table-striped-row-even-background-color: $cream-dark;
-$table-cell-border: unset;
-$table-cell-padding: 10px 10px;
-
-
 @import "../node_modules/bulma/sass/utilities/_all.sass";
 @import "../node_modules/bulma/sass/base/_all.sass";
 @import "../node_modules/bulma/sass/elements/content.sass";
-@import "../node_modules/bulma/sass/elements/table.sass";
 @import "../node_modules/bulma/sass/elements/form.sass";
 @import "../node_modules/bulma/sass/components/level.sass";
