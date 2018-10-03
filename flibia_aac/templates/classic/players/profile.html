@@ -57,16 +57,18 @@
                 {% endcall %}
             {% endcall %}
 
-            {% call inner_card("Deaths") %}
-                {% call table() %}
-                    {% for death in player.deaths %}
-                        <tr>
-                            <td>{{ death.time | pretty_datetime }}</td>
-                            <td>Died at level {{ death.level }} by {{ death.killed_by }}.</td>
-                        </tr>
-                    {% endfor %}
+            {% if player.deaths %}
+                {% call inner_card("Deaths") %}
+                    {% call table() %}
+                        {% for death in player.deaths %}
+                            <tr>
+                                <td>{{ death.time | pretty_datetime }}</td>
+                                <td>Died at level {{ death.level }} by {{ death.killed_by }}.</td>
+                            </tr>
+                        {% endfor %}
+                    {% endcall %}
                 {% endcall %}
-            {% endcall %}
+            {% endif %}
         {% endif %} {# end if player #}
     {% endcall %}
 {% endblock content %}
