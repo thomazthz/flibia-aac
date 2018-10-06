@@ -18,6 +18,7 @@ flask-login = "*"
 itsdangerous = "*"
 arrow = "*"
 flask-mail = "*"
+pytest = "*"
 
 [requires]
 python_version = "3.5"

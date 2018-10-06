@@ -51,12 +51,15 @@ class TestConfig(Config):
     """Test configuration."""
 
     TESTING = True
-    DEBUG = True
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://'
+    DEBUG = False
+    DB_NAME = 'flibia_test'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://flibia:password@localhost/{}'.format(DB_NAME)
+    WTF_CSRF_ENABLED = False
 
 
 def get_config_object(env):
     return dict(
         development=DevelopmentConfig,
         production=ProductionConfig,
+        testing=TestConfig
     ).get(env)
