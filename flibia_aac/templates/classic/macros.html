@@ -59,11 +59,13 @@
 
 {% macro right_widget(title) %}
 <aside class="box">
-    <div class="widget-header has-special-family has-textshadow">
+    <div class="widget__header has-special-family has-textshadow">
         <h2>{{ title }}</h2>
     </div>
     <div class="box box-aside">
-        {{ caller() }}
+        <div class="widget__body">
+            {{ caller() }}
+        </div>
     </div>
     <div class="h-box-border h-box-border--inverted"></div>
 </aside>
