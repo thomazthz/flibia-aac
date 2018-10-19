@@ -8,7 +8,6 @@ $card-header-background-color: $wood;
     border-left: 2px solid $content-panel-container-border-color;
     border-right: 2px solid $content-panel-container-border-color;
 
-
     .card__content-wrapper {
         padding: $card-padding;
         background-color: $beige-dark;
@@ -51,13 +50,6 @@ $card-header-background-color: $wood;
             background-image: url("../../img/title-background-green.gif");
             background-repeat: repeat-x;
             font-size: $green-header-fontsize;
-            font-family: $family-green-header;
-            font-weight: normal;
-            text-shadow:
-                -1px -1px 0 $grey-darker,
-                1px -1px 0 $grey-darker,
-                -1px 1px 0 $grey-darker,
-                1px 1px 0 $grey-darker;
         }
     }
 

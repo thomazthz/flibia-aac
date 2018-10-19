@@ -9,14 +9,8 @@
         height: 32px;
         cursor: pointer;
         color: $beige-dark;
-        font-family: $family-special;
         font-weight: normal;
         font-size: $menu-button-fontsize;
-        text-shadow:
-            -1px -1px 0 $grey-darker,
-            1px -1px 0 $grey-darker,
-            -1px 1px 0 $grey-darker,
-            1px 1px 0 $grey-darker;
 
         .menu__icon {
             width: 2rem;

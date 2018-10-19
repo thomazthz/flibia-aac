@@ -51,3 +51,16 @@ body, html {
     background-repeat: repeat-y;
     background-position: center;
 }
+
+.has-textshadow {
+    text-shadow:
+        -1px -1px 0 $grey-darker,
+        1px -1px 0 $grey-darker,
+        -1px 1px 0 $grey-darker,
+        1px 1px 0 $grey-darker;
+}
+
+.has-special-family {
+    font-family: $family-green-header;
+    font-weight: normal;
+}

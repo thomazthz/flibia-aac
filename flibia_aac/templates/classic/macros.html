@@ -2,7 +2,7 @@
 <section class="section">
     <div class="card">
         <div class="h-stone-border"></div>
-        <div class="card__header card__header--green">
+        <div class="card__header card__header--green has-special-family has-textshadow">
             <h2>{{ title }}</h2>
         </div>
         <div class="card__content-wrapper">
@@ -34,7 +34,7 @@
 {% endmacro %}
 
 {% macro menu_button(icon, title) %}
-<div class="menu__button">
+<div class="menu__button has-special-family has-textshadow">
     <i class="menu__icon menu__icon--{{ icon }}"></i>
     <span>{{ title }}</span>
 </div>
@@ -59,7 +59,7 @@
 
 {% macro right_widget(title) %}
 <aside class="box">
-    <div class="widget-header">
+    <div class="widget-header has-special-family has-textshadow">
         <h2>{{ title }}</h2>
     </div>
     <div class="box box-aside">
