@@ -44,4 +44,7 @@ def get_highscores(category, vocation=None, limit=None):
     if vocation_filter is not None:
         players = players.filter(vocation_filter)
 
+    if limit:
+        players = players.limit(limit)
+
     return players
