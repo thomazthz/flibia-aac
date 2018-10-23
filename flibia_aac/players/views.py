@@ -6,10 +6,9 @@ from flask_login import current_user, login_required, login_user, logout_user
 
 from sqlalchemy import or_
 from sqlalchemy.orm import load_only, joinedload
-from sqlalchemy.sql import func
 
 from flibia_aac.db import db
-from flibia_aac.queries import get_highscores
+from flibia_aac.queries import get_highscores, get_players_online_count
 
 from .forms import CharacterCreationForm, SearchForm
 from .models import Player, PlayersOnline, PlayerDeaths
@@ -56,7 +55,7 @@ def highscores():
 
 @player.route('/players_online', methods=['GET'])
 def players_online():
-    players_count = db.session.query(func.count(PlayersOnline.player_id)).scalar()
+    players_count = get_players_online_count()
     players = db.session.query(Player.name, Player.level, Player.vocation) \
                         .filter(Player.id==PlayersOnline.player_id).all()
     return render_template('players/players_online.html', players=players, players_count=players_count)

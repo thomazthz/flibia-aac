@@ -1,7 +1,9 @@
 from sqlalchemy import or_
 from sqlalchemy.orm import load_only
+from sqlalchemy.sql import func
 
-from .players.models import Player, Vocation
+from .db import db
+from .players.models import Player, PlayersOnline, Vocation
 
 
 def _vocation_filter_builder(vocation, promoted_vocation=None):
@@ -48,3 +50,7 @@ def get_highscores(category, vocation=None, limit=None):
         players = players.limit(limit)
 
     return players
+
+
+def get_players_online_count():
+    return db.session.query(func.count(PlayersOnline.player_id)).scalar()
