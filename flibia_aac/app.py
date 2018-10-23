@@ -3,7 +3,7 @@ import os
 from flask import Flask
 
 from .db import db
-from .extensions import csrf, login_manager, mail
+from .extensions import csrf, login_manager, mail, widgets
 from .settings import get_config_object
 
 
@@ -54,3 +54,4 @@ def register_extensions(app):
     csrf.init_app(app)
     login_manager.init_app(app)
     mail.init_app(app)
+    widgets.init_app(app)

@@ -1,0 +1,10 @@
+{% from "macros.html" import table %}
+
+{% call table() %}
+    <tr>
+        {% for player in players %}
+            <td>{{ loop.index }}</td>
+            <td>{{ player.name }}</td>
+        {% endfor %}
+    </tr>
+{% endcall %}

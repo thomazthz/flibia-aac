@@ -3,6 +3,7 @@
 
 import os
 
+
 class Config(object):
     """Base configuration."""
 
@@ -16,6 +17,11 @@ class Config(object):
     TIME_ZONE = 'UTC'
 
     MAIL_DEFAULT_SENDER = 'no-reply@flibia.com'
+
+    ACTIVE_WIDGETS = (
+        'flibia_aac.widgets.widgets.TopExperienceWidget',
+        'flibia_aac.widgets.widgets.PlayersOnlineWidget',
+    )
 
 
 class ProductionConfig(Config):

@@ -94,36 +94,11 @@
                 <div class="column">
 
                     {% call right_widget("Top Experience") %}
-                        {% call table() %}
-                            <tr>
-                                <td>1</td>
-                                <td>Player</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Player</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Player</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Player</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Player</td>
-                            </tr>
-                        {% endcall %}
+                        {{ widgets('top_experience') }}
                     {% endcall %}
 
                     {% call right_widget("General Info") %}
-                        <div></div>
-                        <div>
-                            <p>Online: 1234</p>
-                            <p>Client: 11.66</p>
-                        </div>
+                        {{ widgets('players_online') }}
                     {% endcall %}
 
                     {% call right_widget("Generic Widget") %}
