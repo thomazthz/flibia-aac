@@ -3,8 +3,6 @@ from importlib import import_module
 import arrow
 from flask import current_app
 
-from .extensions import mail
-
 
 def pretty_datetime(date_format):
     def _pretty_date(timestamp):
@@ -18,6 +16,7 @@ def now():
 
 
 def send_mail(email, subject, body):
+    mail = current_app.extensions['mail']
     mail.send_message(
         subject,
         recipients=[email],
