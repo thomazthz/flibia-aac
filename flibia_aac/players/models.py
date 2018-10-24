@@ -16,6 +16,9 @@ class Vocation(Enum):
     ROYAL_PALADIN = 7
     ELITE_KNIGHT = 8
 
+    def __init__(self, value):
+        self._name_ = self.name.title().replace('_', ' ')
+
 
 class Player(db.Model):
     """A ingame character.
@@ -81,6 +84,10 @@ class Player(db.Model):
     skill_fishing_tries = db.Column(BIGINT(20), nullable=False, server_default=db.text("'0'"))
 
     account = db.relationship('Account', backref=db.backref('characters', lazy=True))
+
+    @property
+    def vocation_name(self):
+        return Vocation(self.vocation).name
 
 
 class PlayerDeaths(db.Model):
