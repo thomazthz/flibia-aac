@@ -1,34 +1,32 @@
 {% extends "base.html" %}
 
-{% from "macros.html" import table %}
+{% from "macros.html" import flat_table %}
 
 {% block content %}
     {% call card("Who is online") %}
         {% call inner_card("World Information") %}
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <td>Status</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Players Online</td>
-                        <td>{{ players_count }}</td>
-                    </tr>
-                    <tr>
-                        <td>Online Record</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Creation Date</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>PvP Type</td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
+            {% call flat_table() %}
+                <tr>
+                    <td>Status</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Players Online</td>
+                    <td>{{ players_count }}</td>
+                </tr>
+                <tr>
+                    <td>Online Record</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Creation Date</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>PvP Type</td>
+                    <td></td>
+                </tr>
+            {% endcall %}
         {% endcall %}
 
         {% if players %}
