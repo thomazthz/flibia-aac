@@ -29,6 +29,19 @@
     &.is-fullwidth {
         width: 100%;
     }
+
+    &--flat {
+        background-color: $brown-light;
+
+        tbody {
+            background: transparent;
+        }
+
+        tr > td:first-child {
+            width: 150px;
+            font-weight: bold;
+        }
+    }
 }
 
 .form-table {

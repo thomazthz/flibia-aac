@@ -85,3 +85,11 @@
     </tbody>
 </table>
 {% endmacro %}
+
+{% macro flat_table() %}
+<table class="table table--flat is-narrow is-fullwidth">
+    <tbody>
+        {{ caller() }}
+    </tbody>
+</table>
+{% endmacro %}
